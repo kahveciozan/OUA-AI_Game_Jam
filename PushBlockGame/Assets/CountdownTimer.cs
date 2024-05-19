@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+//using TMPro;
 using System;
 
 public class CountdownTimer : MonoBehaviour
@@ -11,7 +11,7 @@ public class CountdownTimer : MonoBehaviour
 
     public float timeRemaining = 60; // Geri sayým süresi (saniye olarak)
     public bool timerIsRunning = false;
-    public TextMeshProUGUI timerText;
+    //public TextMeshProUGUI timerText;
 
     private void Start()
     {
@@ -46,7 +46,7 @@ public class CountdownTimer : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        //timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     void TimerEnded()
