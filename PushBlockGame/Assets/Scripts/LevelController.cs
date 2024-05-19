@@ -1,10 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LevelController : MonoBehaviour
 {
+    public static event Action MissionDone;
+
+
     [HideInInspector]
     public Bounds areaBounds;
 
@@ -99,7 +104,7 @@ public class LevelController : MonoBehaviour
 
             //TODO: Confetti effect
             confettiEffect.Play();
-
+            MissionDone?.Invoke();
 
             //Invoke("ResetScene", 5.0f);
             //ResetScene();

@@ -20,6 +20,30 @@ public class MagnaticHolder : MonoBehaviour
             other.GetComponent<Rigidbody>().angularDrag = 1000;
             other.transform.localRotation = Quaternion.identity;
         }
+
+        if (other.CompareTag("blockSmall"))
+        {
+            other.transform.localPosition = position;
+            other.transform.localScale = scale;
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            other.GetComponent<Rigidbody>().mass = 1000;
+            other.GetComponent<Rigidbody>().drag = 1000;
+            other.GetComponent<Rigidbody>().angularDrag = 1000;
+            other.transform.localRotation = Quaternion.identity;
+        }
+
+        if (other.CompareTag("blockVeryLarge"))
+        {
+            other.transform.localPosition = position;
+            other.transform.localScale = scale;
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            other.GetComponent<Rigidbody>().mass = 1000;
+            other.GetComponent<Rigidbody>().drag = 1000;
+            other.GetComponent<Rigidbody>().angularDrag = 1000;
+            other.transform.localRotation = Quaternion.identity;
+        }
     }
 
 }
