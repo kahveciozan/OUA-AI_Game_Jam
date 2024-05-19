@@ -15,7 +15,7 @@ public class LevelController : MonoBehaviour
     public List<BlockInfo> BlocksList = new List<BlockInfo>();
 
     [Header("Target")]
-    public bool USeRandomTargetPosition = true;
+    public bool UseRandomTargetPosition = true;
     [Header("Agent")]
     public bool UseRandomAgentRotation = true;
     public bool UseRandomAgentPosition = true;
@@ -27,6 +27,7 @@ public class LevelController : MonoBehaviour
     private int m_NumberOfRemainingBlocks;
     private SimpleMultiAgentGroup m_AgentGroup;
 
+    public ParticleSystem confettiEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -85,7 +86,7 @@ public class LevelController : MonoBehaviour
         bool done = m_NumberOfRemainingBlocks == 0;
 
         //Disable the block
-        col.gameObject.SetActive(false);
+        //col.gameObject.SetActive(false);
 
         //Give Agent Rewards
         m_AgentGroup.AddGroupReward(score);
@@ -94,7 +95,14 @@ public class LevelController : MonoBehaviour
         {
             //Reset assets
             m_AgentGroup.EndGroupEpisode();
-            ResetScene();
+
+
+            //TODO: Confetti effect
+            confettiEffect.Play();
+
+
+            //Invoke("ResetScene", 5.0f);
+            //ResetScene();
         }
     }
 
@@ -109,7 +117,7 @@ public class LevelController : MonoBehaviour
         var rotation = Random.Range(0, 4);
         var rotationAngle = rotation * 90f;
 
-        if (USeRandomTargetPosition) area.transform.Rotate(new Vector3(0f, rotationAngle, 0f));
+        if (UseRandomTargetPosition) area.transform.Rotate(new Vector3(0f, rotationAngle, 0f));
 
         //Reset Agents
         foreach (var item in AgentsList)

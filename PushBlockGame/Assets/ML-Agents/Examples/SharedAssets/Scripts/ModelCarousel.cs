@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using TMPro;
+//using TMPro;
 using Unity.Sentis;
 using Unity.MLAgents;
 using Unity.MLAgents.Policies;
@@ -52,7 +52,7 @@ public class ModelCarousel : MonoBehaviour
     // The attached Agent
     Agent m_Agent;
 
-    public TextMeshProUGUI textMeshComponent;
+    //public TextMeshProUGUI textMeshComponent;
 
 #if UNITY_EDITOR
     private RecorderWindow GetRecorderWindow()
@@ -67,7 +67,7 @@ public class ModelCarousel : MonoBehaviour
         m_StepsSinceLastSwitch = 0;
         m_CurrentModelIndex = 0;
         m_Agent.SetModel(m_OriginalModel.name, m_OriginalModel);
-        textMeshComponent?.SetText("Ready to Start");
+        //textMeshComponent?.SetText("Ready to Start");
     }
 
     private void OnEnable()
@@ -131,7 +131,7 @@ public class ModelCarousel : MonoBehaviour
             newText = $"After {steps:n0} steps";
         }
 
-        textMeshComponent?.SetText(newText);
+        //textMeshComponent?.SetText(newText);
     }
 
     void SetModel()

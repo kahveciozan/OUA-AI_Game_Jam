@@ -2664,7 +2664,7 @@ MonoBehaviour:
     StartingPos: {x: 0, y: 0, z: 0}
     StartingRot: {x: 0, y: 0, z: 0, w: 0}
     Rb: {fileID: 0}
-  USeRandomTargetPosition: 1
+  USeRandomTargetPosition: 0
   UseRandomAgentRotation: 0
   UseRandomAgentPosition: 0
   UseRandomBlockRotation: 0
