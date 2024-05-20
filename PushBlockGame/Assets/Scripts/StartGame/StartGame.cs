@@ -13,6 +13,12 @@ public class StartGame : MonoBehaviour
     public void StartScene()
     {
         SceneManager.LoadScene(1);
+        
+    }
+
+    public void QuitGame()
+    { 
+       Application.Quit();
     }
 
 
