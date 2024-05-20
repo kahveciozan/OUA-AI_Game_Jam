@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EarthquakeEffect : MonoBehaviour
 {
+    public static event Action AfterEartquakeEffect;
+
+
     public float shakeDuration = 2.0f;
     public float shakeMagnitude = 0.05f;
     public float shakeSpeed = 1.0f;
@@ -11,6 +16,11 @@ public class EarthquakeEffect : MonoBehaviour
     private float shakeTime = 0.0f;
 
     public ParticleSystem dustEffect;
+
+    private void Awake()
+    {
+        AfterEartquakeEffect = null;
+    }
 
     private void Start()
     {
@@ -33,6 +43,7 @@ public class EarthquakeEffect : MonoBehaviour
             }
             else
             {
+                AfterEartquakeEffect?.Invoke();
                 isShaking = false;
                 //TriggerDestruction();
             }
