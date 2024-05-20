@@ -6,10 +6,13 @@ public class MagnaticHolder : MonoBehaviour
 {
     public Vector3 position;
     public Vector3 scale;
+    public bool isLarge;
+    public bool isSmall;
+    public bool isVeryLarge;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("blockLarge"))
+        if (other.CompareTag("blockLarge") && isLarge)
         {
             other.transform.localPosition = position;
             other.transform.localScale = scale;
@@ -21,7 +24,7 @@ public class MagnaticHolder : MonoBehaviour
             other.transform.localRotation = Quaternion.identity;
         }
 
-        if (other.CompareTag("blockSmall"))
+        if (other.CompareTag("blockSmall") && isSmall)
         {
             other.transform.localPosition = position;
             other.transform.localScale = scale;
@@ -33,7 +36,7 @@ public class MagnaticHolder : MonoBehaviour
             other.transform.localRotation = Quaternion.identity;
         }
 
-        if (other.CompareTag("blockVeryLarge"))
+        if (other.CompareTag("blockVeryLarge") && isVeryLarge)
         {
             other.transform.localPosition = position;
             other.transform.localScale = scale;

@@ -13,6 +13,11 @@ public class CountdownTimer : MonoBehaviour
     public bool timerIsRunning = false;
     public TextMeshProUGUI timerText;
 
+    private void Awake()
+    {
+        FinishTimer = null;
+    }
+
     private void Start()
     {
         LevelController.MissionDone += () => { timerIsRunning = false; };

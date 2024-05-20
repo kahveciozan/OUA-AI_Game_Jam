@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class LevelController : MonoBehaviour
 {
     public static event Action MissionDone;
-
+    public static event Action AfterConfettiEffect;
 
     [HideInInspector]
     public Bounds areaBounds;
@@ -33,7 +33,13 @@ public class LevelController : MonoBehaviour
     private SimpleMultiAgentGroup m_AgentGroup;
 
     public ParticleSystem confettiEffect;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        MissionDone = null;
+        AfterConfettiEffect = null;
+    }
+
     void Start()
     {
         m_NumberOfRemainingBlocks = BlocksList.Count;
@@ -105,10 +111,14 @@ public class LevelController : MonoBehaviour
             //TODO: Confetti effect
             confettiEffect.Play();
             MissionDone?.Invoke();
-
-            //Invoke("ResetScene", 5.0f);
+            Invoke("AfterConfetti", 3.0f);
             //ResetScene();
         }
+    }
+
+    private void AfterConfetti()
+    {
+        AfterConfettiEffect?.Invoke();
     }
 
     Quaternion GetRandomRot()
